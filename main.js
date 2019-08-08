@@ -1,28 +1,31 @@
+// languages array
 const languages = {
   en: {
     title: "Welcome to my site",
     tagline: "Anyone can become an entrepreneur !",
-    description: "Twelve chapters to build ambitious startups in Europe",
+    description: "Twelve steps to build ambitious startups in Europe",
     langSwitcher: "Français"
   },
   fr: {
     title: "Bienvenue sur mon site",
-    tagline: "Tout le monde peut devenir un entrepreneur !",
+    tagline: "Tout le monde peut devenir entrepreneur !",
     description: "12 étapes pour construire des startups ambitieuses en Europe",
     langSwitcher: "English"
   }
 };
 
+// DOM elements
 const title = document.querySelector("title");
 const tagline = document.querySelector("h1");
 const description = document.querySelector("p");
 const switcher = document.querySelector("#language-switcher");
 const html = document.querySelector("html");
 
-const selectLanguage = e => {
-  let choice = e.target.dataset.lang;
+// functions
+const selectLanguage = event => {
+  let choice = event.target.dataset.lang;
   changeLanguage(choice);
-  console.log(choice);
+  // console.log(choice);
 };
 
 const changeLanguage = lang => {
@@ -34,4 +37,5 @@ const changeLanguage = lang => {
   html.setAttribute("lang", lang);
 };
 
+// event listener
 switcher.addEventListener("click", selectLanguage);
